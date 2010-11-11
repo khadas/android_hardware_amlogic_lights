@@ -13,7 +13,7 @@ static int set_light_backlight(struct light_device_t* dev,
     int nwr, ret, fd;
     char value[20];
     int light_level;
-    light_level = 15 - (state->color&0xff)/20;
+    light_level =state->color&0xff;
     
     fd = open(BACKLIGHT, O_RDWR);
     nwr = sprintf(value, "%d\n", light_level);
